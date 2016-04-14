@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		292F30351CBE508C00153DA3 /* kz_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 292F30341CBE508C00153DA3 /* kz_back@2x.png */; };
+		2961F0071CBF396C0062FC1A /* kz_badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2961F0061CBF396C0062FC1A /* kz_badge@2x.png */; };
+		2961F0091CBF3C340062FC1A /* kz_overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2961F0081CBF3C340062FC1A /* kz_overlay@2x.png */; };
+		2961F0171CBF3F190062FC1A /* KZAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2961F00D1CBF3F190062FC1A /* KZAlbumViewController.m */; };
+		2961F0181CBF3F190062FC1A /* KZGroupCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2961F00F1CBF3F190062FC1A /* KZGroupCell.m */; };
+		2961F0191CBF3F190062FC1A /* KZGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2961F0101CBF3F190062FC1A /* KZGroupCell.xib */; };
+		2961F01A1CBF3F190062FC1A /* KZImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2961F0121CBF3F190062FC1A /* KZImagePickerController.m */; };
+		2961F01B1CBF3F190062FC1A /* KZGroupInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2961F0161CBF3F190062FC1A /* KZGroupInfo.m */; };
 		29CAB61A1CBE2237005E54F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CAB6191CBE2237005E54F6 /* main.m */; };
 		29CAB61D1CBE2237005E54F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CAB61C1CBE2237005E54F6 /* AppDelegate.m */; };
 		29CAB6201CBE2237005E54F6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CAB61F1CBE2237005E54F6 /* ViewController.m */; };
@@ -17,6 +25,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		292F30341CBE508C00153DA3 /* kz_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kz_back@2x.png"; sourceTree = "<group>"; };
+		2961F0061CBF396C0062FC1A /* kz_badge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kz_badge@2x.png"; sourceTree = "<group>"; };
+		2961F0081CBF3C340062FC1A /* kz_overlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kz_overlay@2x.png"; sourceTree = "<group>"; };
+		2961F00C1CBF3F190062FC1A /* KZAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZAlbumViewController.h; sourceTree = "<group>"; };
+		2961F00D1CBF3F190062FC1A /* KZAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZAlbumViewController.m; sourceTree = "<group>"; };
+		2961F00E1CBF3F190062FC1A /* KZGroupCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZGroupCell.h; sourceTree = "<group>"; };
+		2961F00F1CBF3F190062FC1A /* KZGroupCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZGroupCell.m; sourceTree = "<group>"; };
+		2961F0101CBF3F190062FC1A /* KZGroupCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KZGroupCell.xib; sourceTree = "<group>"; };
+		2961F0111CBF3F190062FC1A /* KZImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZImagePickerController.h; sourceTree = "<group>"; };
+		2961F0121CBF3F190062FC1A /* KZImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZImagePickerController.m; sourceTree = "<group>"; };
+		2961F0131CBF3F190062FC1A /* MacroDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDefinition.h; sourceTree = "<group>"; };
+		2961F0151CBF3F190062FC1A /* KZGroupInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZGroupInfo.h; sourceTree = "<group>"; };
+		2961F0161CBF3F190062FC1A /* KZGroupInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZGroupInfo.m; sourceTree = "<group>"; };
 		29CAB6151CBE2237005E54F6 /* MultipleAlbums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultipleAlbums.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29CAB6191CBE2237005E54F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29CAB61B1CBE2237005E54F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -41,11 +62,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2961F00B1CBF3F180062FC1A /* KZImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				2961F0141CBF3F190062FC1A /* Model */,
+				2961F0111CBF3F190062FC1A /* KZImagePickerController.h */,
+				2961F0121CBF3F190062FC1A /* KZImagePickerController.m */,
+				2961F00C1CBF3F190062FC1A /* KZAlbumViewController.h */,
+				2961F00D1CBF3F190062FC1A /* KZAlbumViewController.m */,
+				2961F00E1CBF3F190062FC1A /* KZGroupCell.h */,
+				2961F00F1CBF3F190062FC1A /* KZGroupCell.m */,
+				2961F0101CBF3F190062FC1A /* KZGroupCell.xib */,
+				2961F0131CBF3F190062FC1A /* MacroDefinition.h */,
+			);
+			path = KZImagePicker;
+			sourceTree = "<group>";
+		};
+		2961F0141CBF3F190062FC1A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2961F0151CBF3F190062FC1A /* KZGroupInfo.h */,
+				2961F0161CBF3F190062FC1A /* KZGroupInfo.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		29CAB60C1CBE2237005E54F6 = {
 			isa = PBXGroup;
 			children = (
 				29CAB6171CBE2237005E54F6 /* MultipleAlbums */,
 				29CAB6161CBE2237005E54F6 /* Products */,
+				292F30341CBE508C00153DA3 /* kz_back@2x.png */,
+				2961F0061CBF396C0062FC1A /* kz_badge@2x.png */,
+				2961F0081CBF3C340062FC1A /* kz_overlay@2x.png */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +113,7 @@
 				29CAB61C1CBE2237005E54F6 /* AppDelegate.m */,
 				29CAB61E1CBE2237005E54F6 /* ViewController.h */,
 				29CAB61F1CBE2237005E54F6 /* ViewController.m */,
+				2961F00B1CBF3F180062FC1A /* KZImagePicker */,
 				29CAB6211CBE2237005E54F6 /* Main.storyboard */,
 				29CAB6271CBE2237005E54F6 /* Assets.xcassets */,
 				29CAB6291CBE2237005E54F6 /* LaunchScreen.storyboard */,
@@ -140,9 +190,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2961F0191CBF3F190062FC1A /* KZGroupCell.xib in Resources */,
 				29CAB62B1CBE2237005E54F6 /* LaunchScreen.storyboard in Resources */,
 				29CAB6281CBE2237005E54F6 /* Assets.xcassets in Resources */,
+				292F30351CBE508C00153DA3 /* kz_back@2x.png in Resources */,
+				2961F0071CBF396C0062FC1A /* kz_badge@2x.png in Resources */,
 				29CAB6231CBE2237005E54F6 /* Main.storyboard in Resources */,
+				2961F0091CBF3C340062FC1A /* kz_overlay@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,7 +210,11 @@
 				29CAB6201CBE2237005E54F6 /* ViewController.m in Sources */,
 				29CAB61D1CBE2237005E54F6 /* AppDelegate.m in Sources */,
 				29CAB61A1CBE2237005E54F6 /* main.m in Sources */,
+				2961F0171CBF3F190062FC1A /* KZAlbumViewController.m in Sources */,
+				2961F0181CBF3F190062FC1A /* KZGroupCell.m in Sources */,
 				29CAB6261CBE2237005E54F6 /* MultipleAlbums.xcdatamodeld in Sources */,
+				2961F01B1CBF3F190062FC1A /* KZGroupInfo.m in Sources */,
+				2961F01A1CBF3F190062FC1A /* KZImagePickerController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +327,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MultipleAlbums/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kunzkun.MultipleAlbums;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -280,6 +339,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MultipleAlbums/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kunzkun.MultipleAlbums;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -305,6 +365,7 @@
 				29CAB6311CBE2237005E54F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
