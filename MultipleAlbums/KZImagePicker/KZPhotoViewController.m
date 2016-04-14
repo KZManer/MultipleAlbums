@@ -116,7 +116,7 @@ static NSString *cellIdentifier = @"cellIdentifier";
 }
 #pragma mark-UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+//    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     
 }
 #pragma mark-UICollectionViewDelegateFlowLayout

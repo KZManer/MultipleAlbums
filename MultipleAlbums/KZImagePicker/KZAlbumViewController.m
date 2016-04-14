@@ -11,7 +11,7 @@
 #import "KZGroupInfo.h"
 #import "KZGroupCell.h"
 #import "MacroDefinition.h"
-
+#import "KZPhotoViewController.h"
 static NSString *cellIdentifier = @"cellIdentifier";
 
 @interface KZAlbumViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -99,5 +99,10 @@ static NSString *cellIdentifier = @"cellIdentifier";
     if ([cell respondsToSelector:@selector(setLayoutMargins:)]){
         [cell setLayoutMargins:UIEdgeInsetsZero];
     }
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    KZGroupInfo *groupInfo = _groupArr[indexPath.row];
+    KZPhotoViewController *photoVC = [[KZPhotoViewController alloc]initWithGroupInfo:groupInfo];
+    [self.navigationController pushViewController:photoVC animated:YES];
 }
 @end
