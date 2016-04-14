@@ -15,6 +15,8 @@
 		2961F0191CBF3F190062FC1A /* KZGroupCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2961F0101CBF3F190062FC1A /* KZGroupCell.xib */; };
 		2961F01A1CBF3F190062FC1A /* KZImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2961F0121CBF3F190062FC1A /* KZImagePickerController.m */; };
 		2961F01B1CBF3F190062FC1A /* KZGroupInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2961F0161CBF3F190062FC1A /* KZGroupInfo.m */; };
+		2961F0201CBF46F80062FC1A /* KZAssetsInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2961F01D1CBF46F80062FC1A /* KZAssetsInfo.m */; };
+		2961F0211CBF46F80062FC1A /* KZPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2961F01F1CBF46F80062FC1A /* KZPhotoViewController.m */; };
 		29CAB61A1CBE2237005E54F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CAB6191CBE2237005E54F6 /* main.m */; };
 		29CAB61D1CBE2237005E54F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CAB61C1CBE2237005E54F6 /* AppDelegate.m */; };
 		29CAB6201CBE2237005E54F6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CAB61F1CBE2237005E54F6 /* ViewController.m */; };
@@ -38,6 +40,10 @@
 		2961F0131CBF3F190062FC1A /* MacroDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MacroDefinition.h; sourceTree = "<group>"; };
 		2961F0151CBF3F190062FC1A /* KZGroupInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZGroupInfo.h; sourceTree = "<group>"; };
 		2961F0161CBF3F190062FC1A /* KZGroupInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZGroupInfo.m; sourceTree = "<group>"; };
+		2961F01C1CBF46F80062FC1A /* KZAssetsInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KZAssetsInfo.h; path = ../KZAssetsInfo.h; sourceTree = "<group>"; };
+		2961F01D1CBF46F80062FC1A /* KZAssetsInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KZAssetsInfo.m; path = ../KZAssetsInfo.m; sourceTree = "<group>"; };
+		2961F01E1CBF46F80062FC1A /* KZPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZPhotoViewController.h; sourceTree = "<group>"; };
+		2961F01F1CBF46F80062FC1A /* KZPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZPhotoViewController.m; sourceTree = "<group>"; };
 		29CAB6151CBE2237005E54F6 /* MultipleAlbums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultipleAlbums.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29CAB6191CBE2237005E54F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29CAB61B1CBE2237005E54F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -73,6 +79,8 @@
 				2961F00E1CBF3F190062FC1A /* KZGroupCell.h */,
 				2961F00F1CBF3F190062FC1A /* KZGroupCell.m */,
 				2961F0101CBF3F190062FC1A /* KZGroupCell.xib */,
+				2961F01E1CBF46F80062FC1A /* KZPhotoViewController.h */,
+				2961F01F1CBF46F80062FC1A /* KZPhotoViewController.m */,
 				2961F0131CBF3F190062FC1A /* MacroDefinition.h */,
 			);
 			path = KZImagePicker;
@@ -81,6 +89,8 @@
 		2961F0141CBF3F190062FC1A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2961F01C1CBF46F80062FC1A /* KZAssetsInfo.h */,
+				2961F01D1CBF46F80062FC1A /* KZAssetsInfo.m */,
 				2961F0151CBF3F190062FC1A /* KZGroupInfo.h */,
 				2961F0161CBF3F190062FC1A /* KZGroupInfo.m */,
 			);
@@ -208,6 +218,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				29CAB6201CBE2237005E54F6 /* ViewController.m in Sources */,
+				2961F0201CBF46F80062FC1A /* KZAssetsInfo.m in Sources */,
+				2961F0211CBF46F80062FC1A /* KZPhotoViewController.m in Sources */,
 				29CAB61D1CBE2237005E54F6 /* AppDelegate.m in Sources */,
 				29CAB61A1CBE2237005E54F6 /* main.m in Sources */,
 				2961F0171CBF3F190062FC1A /* KZAlbumViewController.m in Sources */,
