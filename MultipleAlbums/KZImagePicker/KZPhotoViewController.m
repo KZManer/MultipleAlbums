@@ -13,6 +13,7 @@
 #import "KZAssetsInfo.h"
 
 #define bottomViewHeight 40
+#define kCountBtnLength 26
 
 static NSString *cellIdentifier = @"cellIdentifier";
 
@@ -21,6 +22,10 @@ static NSString *cellIdentifier = @"cellIdentifier";
     UICollectionView *_collectionView;
     KZGroupInfo *_groupInfo;
     NSMutableArray *_assetInfoArr;//存储所有读取的照片
+    dispatch_queue_t _queue;
+    NSMutableDictionary *_imageDic;
+    UIButton *_sendBtn;
+    UIButton *_countBtn;//选中照片的总数
 }
 @end
 
@@ -64,8 +69,15 @@ static NSString *cellIdentifier = @"cellIdentifier";
 - (void)loadAssetsGroup{
     ALAssetsGroup *group = _groupInfo.group;
     [group enumerateAssetsUsingBlock:^(ALAsset *result, NSUInteger index, BOOL *stop) {
-        KZAssetsInfo *assetsInfo = [[KZAssetsInfo alloc]initWithAsset:result];
-        [_assetInfoArr addObject:assetsInfo];
+        if (result) {
+            KZAssetsInfo *assetsInfo = [[KZAssetsInfo alloc]initWithAsset:result];
+            [_assetInfoArr addObject:assetsInfo];
+        } else {
+            //遍历完成，滚动到最底部
+            NSIndexPath *indexPath = [NSIndexPath indexPathForItem:_assetInfoArr.count - 1 inSection:0];
+            [_collectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionBottom animated:NO];
+        }
+        
     }];
 }
 - (void)addBottomView{
@@ -78,18 +90,45 @@ static NSString *cellIdentifier = @"cellIdentifier";
     [bottomView addSubview:topLine];
     
     UIButton *sendBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _sendBtn = sendBtn;
+    [sendBtn setUserInteractionEnabled:NO];
+    [sendBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     [sendBtn setFrame:CGRectMake(screenWidth - 45, (bottomViewHeight - 25)/2, 40, 25)];
     [sendBtn setTitle:@"发送" forState:UIControlStateNormal];
-    [sendBtn setTitleColor:kColor(26, 178, 10) forState:UIControlStateNormal];
     [sendBtn.titleLabel setFont:kFont(15)];
+    [sendBtn addTarget:self action:@selector(sendBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     [bottomView addSubview:sendBtn];
     
-    UIButton *chooseNumBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [chooseNumBtn setFrame:CGRectMake(screenWidth - 70, (bottomViewHeight - 20)/2, 20, 20)];
-    [chooseNumBtn setBackgroundImage:[UIImage imageNamed:@"kz_badge"] forState:UIControlStateNormal];
-    chooseNumBtn.alpha = .8;
-    [chooseNumBtn setUserInteractionEnabled:NO];
-    [bottomView addSubview:chooseNumBtn];
+    UIButton *countBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _countBtn = countBtn;
+    [countBtn setFrame:CGRectMake(screenWidth - 70, (bottomViewHeight - kCountBtnLength)/2, kCountBtnLength, kCountBtnLength)];
+    [countBtn.layer setCornerRadius:kCountBtnLength/2];
+    countBtn.hidden = YES;
+    [countBtn.titleLabel setFont:kFont(15)];
+    [countBtn setImage:[UIImage imageNamed:@"kz_badge"] forState:UIControlStateNormal];
+    countBtn.alpha = .8;
+    [countBtn setUserInteractionEnabled:NO];
+    [countBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, -kCountBtnLength, 0, 0)];
+    [bottomView addSubview:countBtn];
+}
+- (void)setCountBtnStatus:(int)count{
+    if (count>0) {
+        _countBtn.hidden = NO;
+        [_countBtn setTitle:[NSString stringWithFormat:@"%d",count] forState:UIControlStateNormal];
+        [_sendBtn setUserInteractionEnabled:YES];
+        [_sendBtn setTitleColor:kColor(26, 178, 10) forState:UIControlStateNormal];
+        
+        CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"bounds"];
+        NSValue *value1 = [NSValue valueWithCGRect:CGRectMake(0, 0, kCountBtnLength * 0.2, kCountBtnLength * 0.2)];
+        NSValue *value2 = [NSValue valueWithCGRect:CGRectMake(0, 0, kCountBtnLength * 1.1, kCountBtnLength * 1.1)];
+        NSValue *value3 = [NSValue valueWithCGRect:CGRectMake(0, 0, kCountBtnLength, kCountBtnLength)];
+        animation.values = @[value1,value2,value3];
+        [_countBtn.imageView.layer addAnimation:animation forKey:nil];
+    } else {
+        _countBtn.hidden = YES;
+        [_sendBtn setUserInteractionEnabled:NO];
+        [_sendBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+    }
 }
 - (void)leftItemClicked{
     [self.navigationController popViewControllerAnimated:YES];
@@ -99,6 +138,9 @@ static NSString *cellIdentifier = @"cellIdentifier";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)sendBtnClicked{
+    NSLog(@"ff");
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -117,7 +159,28 @@ static NSString *cellIdentifier = @"cellIdentifier";
 #pragma mark-UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
 //    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    
+    if (!_imageDic) {
+        _imageDic = [NSMutableDictionary dictionary];
+    }
+    if (!_queue) {
+        _queue = dispatch_queue_create("test", NULL);
+    }
+    dispatch_async(_queue, ^{
+        KZAssetsInfo *assetsInfo = _assetInfoArr[indexPath.item];
+        UIImage *image = [UIImage imageWithCGImage:[assetsInfo.asset defaultRepresentation].fullScreenImage];
+        [_imageDic setObject:image forKey:[NSString stringWithFormat:@"%ld",(long)indexPath.item]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self setCountBtnStatus:(int)_imageDic.count];
+        });
+    });
+}
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath{
+    dispatch_async(_queue, ^{
+        [_imageDic removeObjectForKey:[NSString stringWithFormat:@"%ld",(long)indexPath.item]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self setCountBtnStatus:(int)_imageDic.count];
+        });
+    });
 }
 #pragma mark-UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{

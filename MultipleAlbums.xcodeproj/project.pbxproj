@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		292F30351CBE508C00153DA3 /* kz_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 292F30341CBE508C00153DA3 /* kz_back@2x.png */; };
 		2961F0071CBF396C0062FC1A /* kz_badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2961F0061CBF396C0062FC1A /* kz_badge@2x.png */; };
 		2961F0091CBF3C340062FC1A /* kz_overlay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2961F0081CBF3C340062FC1A /* kz_overlay@2x.png */; };
 		2961F0171CBF3F190062FC1A /* KZAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2961F00D1CBF3F190062FC1A /* KZAlbumViewController.m */; };
@@ -27,7 +26,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		292F30341CBE508C00153DA3 /* kz_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kz_back@2x.png"; sourceTree = "<group>"; };
 		2961F0061CBF396C0062FC1A /* kz_badge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kz_badge@2x.png"; sourceTree = "<group>"; };
 		2961F0081CBF3C340062FC1A /* kz_overlay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kz_overlay@2x.png"; sourceTree = "<group>"; };
 		2961F00C1CBF3F190062FC1A /* KZAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZAlbumViewController.h; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 			children = (
 				29CAB6171CBE2237005E54F6 /* MultipleAlbums */,
 				29CAB6161CBE2237005E54F6 /* Products */,
-				292F30341CBE508C00153DA3 /* kz_back@2x.png */,
 				2961F0061CBF396C0062FC1A /* kz_badge@2x.png */,
 				2961F0081CBF3C340062FC1A /* kz_overlay@2x.png */,
 			);
@@ -203,7 +200,6 @@
 				2961F0191CBF3F190062FC1A /* KZGroupCell.xib in Resources */,
 				29CAB62B1CBE2237005E54F6 /* LaunchScreen.storyboard in Resources */,
 				29CAB6281CBE2237005E54F6 /* Assets.xcassets in Resources */,
-				292F30351CBE508C00153DA3 /* kz_back@2x.png in Resources */,
 				2961F0071CBF396C0062FC1A /* kz_badge@2x.png in Resources */,
 				29CAB6231CBE2237005E54F6 /* Main.storyboard in Resources */,
 				2961F0091CBF3C340062FC1A /* kz_overlay@2x.png in Resources */,
