@@ -139,7 +139,13 @@ static NSString *cellIdentifier = @"cellIdentifier";
 }
 
 - (void)sendBtnClicked{
-    NSLog(@"ff");
+//    if (self.block) {
+//        self.block([_imageDic allValues]);
+//    }
+    if (self.delegate && [self.delegate respondsToSelector:@selector(KZPhotoViewControllerSendBtnClicked:)]) {
+        [self.delegate KZPhotoViewControllerSendBtnClicked:[_imageDic allValues]];
+    }
+    [self cancelBtnClicked];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -7,9 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 #import "KZGroupInfo.h"
 
+//typedef void(^chooseImage)(NSArray *);
+
+@protocol KZPhotoViewControllerDelegate <NSObject>
+
+- (void)KZPhotoViewControllerSendBtnClicked:(NSArray *)imageArr;
+
+@end
+
 @interface KZPhotoViewController : UIViewController
+
+//@property (nonatomic, copy) chooseImage block;
+
+@property (nonatomic, assign) id delegate;
 
 - (id)initWithGroupInfo:(KZGroupInfo *)groupInfo;
 
