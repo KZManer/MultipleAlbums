@@ -12,6 +12,7 @@
 #import "KZGroupCell.h"
 #import "MacroDefinition.h"
 #import "KZPhotoViewController.h"
+#import "KZImagePickerController.h"
 static NSString *cellIdentifier = @"cellIdentifier";
 
 @interface KZAlbumViewController ()<UITableViewDataSource,UITableViewDelegate>
@@ -63,6 +64,18 @@ static NSString *cellIdentifier = @"cellIdentifier";
         } else {
             //将数组中的相册进行反向排序，使默认的相册排在最上面
             _groupArr = (NSMutableArray *)[[_groupArr reverseObjectEnumerator]allObjects];
+            
+            //push到第一个相册的照片页面
+            KZPhotoViewController *firPhotoVC = [[KZPhotoViewController alloc]initWithGroupInfo:_groupArr[0]];
+//            firPhotoVC.block = ^(NSArray *imagesArr){
+//                KZImagePickerController *vv = (KZImagePickerController *)self.navigationController;
+//                vv.block(imagesArr);
+//            };
+            
+            //挂代理的原因，要在KZImagePickerController中实现KZPhotoVC中的方法，在这里将firstPhotoVC的代理给self.navigationController(即KZImagePickerController)
+            firPhotoVC.delegate = self.navigationController;
+            [self.navigationController pushViewController:firPhotoVC animated:NO];
+            
             [_tableView reloadData];
         }
     } failureBlock:^(NSError *error) {
@@ -103,6 +116,11 @@ static NSString *cellIdentifier = @"cellIdentifier";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     KZGroupInfo *groupInfo = _groupArr[indexPath.row];
     KZPhotoViewController *photoVC = [[KZPhotoViewController alloc]initWithGroupInfo:groupInfo];
+    photoVC.delegate = self.navigationController;
+//    photoVC.block = ^(NSArray *imagesArr){
+//        KZImagePickerController *vv = (KZImagePickerController *)self.navigationController;
+//        vv.block(imagesArr);
+//    };
     [self.navigationController pushViewController:photoVC animated:YES];
 }
 @end
