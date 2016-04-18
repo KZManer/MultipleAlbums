@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "KZImagePickerController.h"
-@interface ViewController ()
+@interface ViewController ()<KZImagePickerControllerDelegate>
 
 @end
 
@@ -28,7 +28,15 @@
 }
 - (void)choosePhotoBtnClicked{
     KZImagePickerController *imagePicker = [KZImagePickerController imagePicker];
+    imagePicker.kDelegate = self;
+//    [imagePicker setBlock:^(NSArray *imageArr){
+//        NSLog(@"%@",imageArr);
+//    }];
     [self presentViewController:imagePicker animated:YES completion:nil];
+}
+#pragma mark-KZImagePickerControllerDelegate
+- (void)KZImagePickerControllerDidFinishWithImageArr:(NSArray *)imageArr{
+    NSLog(@"%@",imageArr);
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
