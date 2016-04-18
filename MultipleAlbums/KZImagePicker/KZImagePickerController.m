@@ -8,7 +8,8 @@
 
 #import "KZImagePickerController.h"
 #import "KZAlbumViewController.h"
-@interface KZImagePickerController ()
+#import "KZPhotoViewController.h"
+@interface KZImagePickerController ()<KZPhotoViewControllerDelegate>
 
 @end
 
@@ -28,7 +29,12 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+#pragma mark-KZPhotoViewControllerDelegate
+- (void)KZPhotoViewControllerSendBtnClicked:(NSArray *)imageArr{
+    if (self.kDelegate && [self.kDelegate respondsToSelector:@selector(KZImagePickerControllerDidFinishWithImageArr:)]) {
+        [self.kDelegate KZImagePickerControllerDidFinishWithImageArr:imageArr];
+    }
+}
 /*
 #pragma mark - Navigation
 

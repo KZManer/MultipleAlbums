@@ -8,7 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+//typedef void(^chooseImage)(NSArray *);
+
+@protocol KZImagePickerControllerDelegate <NSObject>
+
+- (void)KZImagePickerControllerDidFinishWithImageArr:(NSArray *)imageArr;
+
+@end
+
 @interface KZImagePickerController : UINavigationController
+
+//@property (nonatomic, copy) chooseImage block;
+
+@property (nonatomic, assign) id kDelegate;
 
 + (id)imagePicker;
 
