@@ -16,6 +16,7 @@
 		2961F01B1CBF3F190062FC1A /* KZGroupInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2961F0161CBF3F190062FC1A /* KZGroupInfo.m */; };
 		2961F0201CBF46F80062FC1A /* KZAssetsInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2961F01D1CBF46F80062FC1A /* KZAssetsInfo.m */; };
 		2961F0211CBF46F80062FC1A /* KZPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2961F01F1CBF46F80062FC1A /* KZPhotoViewController.m */; };
+		2961F02F1CC5D7030062FC1A /* KZPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2961F02E1CC5D7030062FC1A /* KZPreviewViewController.m */; };
 		29CAB61A1CBE2237005E54F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CAB6191CBE2237005E54F6 /* main.m */; };
 		29CAB61D1CBE2237005E54F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CAB61C1CBE2237005E54F6 /* AppDelegate.m */; };
 		29CAB6201CBE2237005E54F6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29CAB61F1CBE2237005E54F6 /* ViewController.m */; };
@@ -42,6 +43,8 @@
 		2961F01D1CBF46F80062FC1A /* KZAssetsInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KZAssetsInfo.m; path = ../KZAssetsInfo.m; sourceTree = "<group>"; };
 		2961F01E1CBF46F80062FC1A /* KZPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZPhotoViewController.h; sourceTree = "<group>"; };
 		2961F01F1CBF46F80062FC1A /* KZPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZPhotoViewController.m; sourceTree = "<group>"; };
+		2961F02D1CC5D7030062FC1A /* KZPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZPreviewViewController.h; sourceTree = "<group>"; };
+		2961F02E1CC5D7030062FC1A /* KZPreviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZPreviewViewController.m; sourceTree = "<group>"; };
 		29CAB6151CBE2237005E54F6 /* MultipleAlbums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultipleAlbums.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29CAB6191CBE2237005E54F6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29CAB61B1CBE2237005E54F6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -79,6 +82,8 @@
 				2961F0101CBF3F190062FC1A /* KZGroupCell.xib */,
 				2961F01E1CBF46F80062FC1A /* KZPhotoViewController.h */,
 				2961F01F1CBF46F80062FC1A /* KZPhotoViewController.m */,
+				2961F02D1CC5D7030062FC1A /* KZPreviewViewController.h */,
+				2961F02E1CC5D7030062FC1A /* KZPreviewViewController.m */,
 				2961F0131CBF3F190062FC1A /* MacroDefinition.h */,
 			);
 			path = KZImagePicker;
@@ -216,6 +221,7 @@
 				29CAB6201CBE2237005E54F6 /* ViewController.m in Sources */,
 				2961F0201CBF46F80062FC1A /* KZAssetsInfo.m in Sources */,
 				2961F0211CBF46F80062FC1A /* KZPhotoViewController.m in Sources */,
+				2961F02F1CC5D7030062FC1A /* KZPreviewViewController.m in Sources */,
 				29CAB61D1CBE2237005E54F6 /* AppDelegate.m in Sources */,
 				29CAB61A1CBE2237005E54F6 /* main.m in Sources */,
 				2961F0171CBF3F190062FC1A /* KZAlbumViewController.m in Sources */,

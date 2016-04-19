@@ -11,6 +11,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "KZGroupInfo.h"
 #import "KZAssetsInfo.h"
+#import "KZPreviewViewController.h"
 
 #define bottomViewHeight 40
 #define kCountBtnLength 26
@@ -26,6 +27,8 @@ static NSString *cellIdentifier = @"cellIdentifier";
     NSMutableDictionary *_imageDic;
     UIButton *_sendBtn;
     UIButton *_countBtn;//选中照片的总数
+    
+    UIButton *_previewBtn;//预览按钮
 }
 @end
 
@@ -89,16 +92,29 @@ static NSString *cellIdentifier = @"cellIdentifier";
     [topLine setBackgroundColor:[UIColor lightGrayColor]];
     [bottomView addSubview:topLine];
     
+    //预览按钮
+    UIButton *previewBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _previewBtn = previewBtn;
+    [previewBtn setUserInteractionEnabled:NO];
+    [previewBtn setFrame:CGRectMake(5, (bottomViewHeight - 25)/2, 40, 25)];
+    [previewBtn setTitle:@"预览" forState:UIControlStateNormal];
+    [previewBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+    [previewBtn.titleLabel setFont:kFont(15)];
+    [previewBtn addTarget:self action:@selector(previewBtnClicked) forControlEvents:UIControlEventTouchUpInside];
+    [bottomView addSubview:previewBtn];
+    
+    //发送按钮
     UIButton *sendBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _sendBtn = sendBtn;
     [sendBtn setUserInteractionEnabled:NO];
-    [sendBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     [sendBtn setFrame:CGRectMake(screenWidth - 45, (bottomViewHeight - 25)/2, 40, 25)];
     [sendBtn setTitle:@"发送" forState:UIControlStateNormal];
+    [sendBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     [sendBtn.titleLabel setFont:kFont(15)];
     [sendBtn addTarget:self action:@selector(sendBtnClicked) forControlEvents:UIControlEventTouchUpInside];
     [bottomView addSubview:sendBtn];
     
+    //记录选中的图片总数
     UIButton *countBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     _countBtn = countBtn;
     [countBtn setFrame:CGRectMake(screenWidth - 70, (bottomViewHeight - kCountBtnLength)/2, kCountBtnLength, kCountBtnLength)];
@@ -118,6 +134,9 @@ static NSString *cellIdentifier = @"cellIdentifier";
         [_sendBtn setUserInteractionEnabled:YES];
         [_sendBtn setTitleColor:kColor(26, 178, 10) forState:UIControlStateNormal];
         
+        [_previewBtn setUserInteractionEnabled:YES];
+        [_previewBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        
         CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"bounds"];
         NSValue *value1 = [NSValue valueWithCGRect:CGRectMake(0, 0, kCountBtnLength * 0.2, kCountBtnLength * 0.2)];
         NSValue *value2 = [NSValue valueWithCGRect:CGRectMake(0, 0, kCountBtnLength * 1.1, kCountBtnLength * 1.1)];
@@ -128,16 +147,24 @@ static NSString *cellIdentifier = @"cellIdentifier";
         _countBtn.hidden = YES;
         [_sendBtn setUserInteractionEnabled:NO];
         [_sendBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        
+        [_previewBtn setUserInteractionEnabled:NO];
+        [_previewBtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     }
 }
 - (void)leftItemClicked{
     [self.navigationController popViewControllerAnimated:YES];
 }
-
+//取消按钮被点击
 - (void)cancelBtnClicked{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
+//预览按钮被点击
+- (void)previewBtnClicked{
+    KZPreviewViewController *previewVC = [[KZPreviewViewController alloc]initWithImagesArray:[_imageDic allValues]];
+    [self.navigationController pushViewController:previewVC animated:NO];
+}
+//发送按钮被点击
 - (void)sendBtnClicked{
 //    if (self.block) {
 //        self.block([_imageDic allValues]);
